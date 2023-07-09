@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 with open("README.md") as f:
     README = f.read()
@@ -8,13 +8,7 @@ with open("requirements.txt", "r") as f:
 
 setup(
     name="video-ditor",
-    py_modules=[
-        "cut",
-        "background",
-        "concat",
-        "watermark",
-        "download"
-    ],
+    py_modules=["cut", "background", "concat", "watermark", "download"],
     version="0.0.2",
     packages=find_packages(exclude=["docs", "tests", "tests.*"]),
     long_description=README,
@@ -26,12 +20,12 @@ setup(
     install_requires=install_requires,
     description="A python package to manipulate videos",
     entry_points={
-        'console_scripts': [
-            'slice = cut.main:cli',
-            'concat = concat.main:cli',
-            'background = background.main:cli',
-            'watermark = watermark.main:cli',
-            'ytube = download.main:cli',
+        "console_scripts": [
+            "slice = cut.main:cli",
+            "concat = concat.main:cli",
+            "background = background.main:cli",
+            "watermark = watermark.main:cli",
+            "ytube = download.main:cli",
         ]
     },
     classifiers=[

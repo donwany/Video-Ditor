@@ -1,7 +1,8 @@
-from dataclasses import dataclass
 import os
-from moviepy.editor import *
+from dataclasses import dataclass
+
 from loguru import logger
+from moviepy.editor import *
 
 
 @dataclass

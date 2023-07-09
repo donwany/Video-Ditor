@@ -1,6 +1,8 @@
 import argparse
+
 from loguru import logger
-from .utils import add_background_video, Args, validate_args
+
+from .utils import Args, add_background_video, validate_args
 
 
 def cli():

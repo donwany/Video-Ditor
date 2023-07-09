@@ -1,7 +1,7 @@
 import sys
 
-from moviepy.editor import concatenate_videoclips, VideoFileClip
 from loguru import logger
+from moviepy.editor import VideoFileClip, concatenate_videoclips
 
 
 def concatenate_videos(video_clips, output_path, method="compose"):

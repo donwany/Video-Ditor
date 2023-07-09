@@ -1,8 +1,9 @@
-from moviepy.video.io.VideoFileClip import VideoFileClip
-from loguru import logger
-from dataclasses import dataclass
-import os
 import datetime
+import os
+from dataclasses import dataclass
+
+from loguru import logger
+from moviepy.video.io.VideoFileClip import VideoFileClip
 
 
 @dataclass

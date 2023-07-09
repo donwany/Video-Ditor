@@ -1,6 +1,8 @@
 import argparse
-from .utils import cut_video, Args, validate_args
+
 from loguru import logger
+
+from .utils import Args, cut_video, validate_args
 
 
 def cli():

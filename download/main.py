@@ -1,6 +1,7 @@
 import argparse
-from loguru import logger
+
 import yt_dlp
+from loguru import logger
 
 
 def download_video(url):

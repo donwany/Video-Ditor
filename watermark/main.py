@@ -2,6 +2,7 @@ import argparse
 
 from loguru import logger
 from moviepy.editor import *
+
 from .utils import has_image_extension
 
 
