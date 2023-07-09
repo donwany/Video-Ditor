@@ -10,6 +10,11 @@
 ### How to install
 ```shell
 pip install video-ditor
+
+# OR
+git clone https://github.com/donwany/Video-Ditor.git
+cd Video-Ditor
+make pre-release
 ```
 
 ### Join Videos
@@ -61,9 +66,9 @@ background -b gabby.mp4 -o IWILL.mp4 -x final1.mp4 -p 150 -v 0.10 -bv 1.0
 # Using CLI
 ytube -u https://www.youtube.com/watch?v=fqi8cvN1hrI
 
-ytube -u https://twitter.com/kwadwosheldon/status/1673856306136981504
+ytube --url https://twitter.com/kwadwosheldon/status/1673856306136981504
 
-ytube -u https://www.facebook.com/gtvghana/videos/1219922122741862
+ytube --url https://www.facebook.com/gtvghana/videos/1219922122741862
 ```
 
 BuyMeCoffee
