@@ -1,0 +1,4 @@
+requests
+loguru
+moviepy==1.0.3
+yt_dlp
