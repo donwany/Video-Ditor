@@ -1,36 +1,6 @@
-from .utils import add_background_video
 import argparse
 from loguru import logger
-from dataclasses import dataclass
-import os
-
-
-@dataclass
-class Args:
-    back_vid: str
-    overlay_vid: str
-    output_vid: str
-    over_pos: int
-    over_vol: float
-    back_vol: float
-
-
-def validate_args(args: Args):
-    # Validate file paths
-    if not os.path.isfile(args.back_vid):
-        raise ValueError("Invalid background video file path.")
-    if not os.path.isfile(args.overlay_vid):
-        raise ValueError("Invalid overlay video file path.")
-    if os.path.isfile(args.output_vid):
-        raise ValueError("Output video file already exists.")
-
-    # Validate position and volume values
-    if args.over_pos < 0:
-        raise ValueError("Overlay position must be non-negative.")
-    if args.over_vol < 0 or args.over_vol > 1:
-        raise ValueError("Overlay volume must be between 0 and 1.")
-    if args.back_vol < 0 or args.back_vol > 1:
-        raise ValueError("Background volume must be between 0 and 1.")
+from .utils import add_background_video, Args, validate_args
 
 
 def cli():

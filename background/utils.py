@@ -1,14 +1,44 @@
+from dataclasses import dataclass
+import os
 from moviepy.editor import *
 from loguru import logger
 
 
+@dataclass
+class Args:
+    back_vid: str
+    overlay_vid: str
+    output_vid: str
+    over_pos: int
+    over_vol: float
+    back_vol: float
+
+
+def validate_args(args: Args):
+    # Validate file paths
+    if not os.path.isfile(args.back_vid):
+        raise ValueError("Invalid background video file path.")
+    if not os.path.isfile(args.overlay_vid):
+        raise ValueError("Invalid overlay video file path.")
+    if os.path.isfile(args.output_vid):
+        raise ValueError("Output video file already exists.")
+
+    # Validate position and volume values
+    if args.over_pos < 0:
+        raise ValueError("Overlay position must be non-negative.")
+    if args.over_vol < 0 or args.over_vol > 1:
+        raise ValueError("Overlay volume must be between 0 and 1.")
+    if args.back_vol < 0 or args.back_vol > 1:
+        raise ValueError("Background volume must be between 0 and 1.")
+
+
 def add_background_video(
-    back_video: str,
-    overlay_video: str,
-    output_video: str,
-    over_pos: int,
-    back_vol: float,
-    over_vol: float,
+        back_video: str,
+        overlay_video: str,
+        output_video: str,
+        over_pos: int,
+        back_vol: float,
+        over_vol: float,
 ):
     """adding background and overlay videos"""
 
