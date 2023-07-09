@@ -1,4 +1,4 @@
-requests
-loguru
+requests==2.31.0
+loguru==0.7.0
 moviepy==1.0.3
 yt_dlp
