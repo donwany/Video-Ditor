@@ -19,41 +19,40 @@ def cli():
                         help="watermark position")
     args = parser.parse_args()
 
-    input_video = args.input_vid
-    watermark = args.watermark
-    img_height = args.img_height
-    output_vid = args.output_vid
-    watermark_pos = args.position
-
     # List of image extensions to check
     image_extensions = ['.jpg', '.jpeg', '.png']
 
     # Load the video
+    input_video = args.input_vid
     if input_video.lower().endswith(".mp4"):
         video = VideoFileClip(input_video)
-        logger.info("Video extension valid ...")
+        logger.info("Input video loaded successfully.")
     else:
-        logger.info("Video extension not valid ...")
-        sys.exit(1)
+        logger.info("Invalid video extension. Only .mp4 format allowed.")
+        return
+
     # Load the watermark image
+    watermark = args.watermark
     if has_image_extension(watermark, image_extensions):
-        watermark = ImageClip(watermark).resize(height=img_height)
-        logger.info("filename is an image file ...")
+        watermark = ImageClip(watermark).resize(height=args.img_height)
+        logger.info("Watermark image loaded successfully.")
     else:
-        logger.info("filename is not an image file ...")
-        sys.exit(1)
+        logger.info(f"Invalid watermark image. Only {image_extensions} allowed.")
+        return
 
     # Set the duration of the watermark clip
     watermark = watermark.set_duration(video.duration)
+
     # Add the watermark to the video
+    watermark_pos = args.position
     video_with_watermark = CompositeVideoClip(
-        [video, watermark.set_position((watermark_pos, "bottom"))]
+        [video, watermark.set_position((watermark_pos, "bottom"))],
     )
 
     # Write the output video
-    logger.info("Writing video file ...")
+    logger.info("Writing output video file...")
     video_with_watermark.write_videofile(
-        output_vid,
+        args.output_vid,
         codec="libx264",
         audio_codec="aac",
         fps=60,

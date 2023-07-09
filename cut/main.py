@@ -1,5 +1,5 @@
 import argparse
-from .utils import cut_video
+from .utils import cut_video, Args, validate_args
 from loguru import logger
 
 
@@ -19,14 +19,23 @@ def cli():
     )
     args = parser.parse_args()
 
-    input_vid = args.input_vid
-    output_vid = args.output_vid
-    start = args.start_time
-    end = args.end_time
+    # Create an instance of Args
+    input_args = Args(
+        input_vid=args.input_vid,
+        output_vid=args.output_vid,
+        start_time=args.start_time,
+        end_time=args.end_time,
+    )
+
+    # Validate the input arguments
+    validate_args(input_args)
 
     logger.info("Cutting video ...")
     cut_video(
-        input_vid=input_vid, start_time=start, end_time=end, output_vid=output_vid
+        input_vid=input_args.input_vid,
+        start_time=input_args.start_time,
+        end_time=input_args.end_time,
+        output_vid=input_args.output_vid,
     )
 
 
