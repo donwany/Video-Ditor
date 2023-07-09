@@ -17,3 +17,6 @@ sort:
 
 pre-release:
 	python setup.py install
+
+gitupload:
+	git add . && git commit -m "first commit" && git push -u origin main
