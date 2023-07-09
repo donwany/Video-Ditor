@@ -10,7 +10,9 @@
 ### How to install
 ```shell
 pip install video-ditor
-
+```
+### Install using:
+```shell
 # OR
 git clone https://github.com/donwany/Video-Ditor.git
 cd Video-Ditor
