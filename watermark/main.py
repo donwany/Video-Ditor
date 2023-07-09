@@ -28,7 +28,7 @@ def cli():
         video = VideoFileClip(input_video)
         logger.info("Input video loaded successfully.")
     else:
-        logger.info("Invalid video extension. Only .mp4 format allowed.")
+        logger.info("Invalid video extension. Only .mp4 file format allowed.")
         return
 
     # Load the watermark image

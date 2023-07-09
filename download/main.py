@@ -1,5 +1,5 @@
 import argparse
-
+from loguru import logger
 import yt_dlp
 
 
@@ -23,6 +23,7 @@ def cli():
     args = parser.parse_args()
 
     video_url = args.url
+    logger.info(f"Downloading from : {video_url}")
     download_video(video_url)
 
 
