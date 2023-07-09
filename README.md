@@ -60,7 +60,7 @@ python main.py -b gabby.mp4 -o IWILL.mp4 -x final1.mp4 -p 150 -v 0.10 -bv 1.0
 background -b gabby.mp4 -o IWILL.mp4 -x final1.mp4 -p 150 -v 0.10 -bv 1.0
 ```
 
-### Download YouTube Videos
+### Download YouTube/Facebook/Twitter Videos
 ```bash
 
 # Using CLI
