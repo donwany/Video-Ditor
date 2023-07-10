@@ -8,8 +8,8 @@ with open("requirements.txt", "r") as f:
 
 setup(
     name="video-ditor",
-    py_modules=["cut", "background", "concat", "watermark", "download"],
-    version="0.0.2",
+    py_modules=["cut", "background", "concat", "watermark", "download", "add_text"],
+    version="0.0.3",
     packages=find_packages(exclude=["docs", "tests", "tests.*"]),
     long_description=README,
     long_description_content_type="text/markdown",
@@ -26,6 +26,7 @@ setup(
             "background = background.main:cli",
             "watermark = watermark.main:cli",
             "ytube = download.main:cli",
+            "add_text = add_text.main:cli",
         ]
     },
     classifiers=[

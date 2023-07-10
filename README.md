@@ -19,58 +19,63 @@ cd Video-Ditor
 make pre-release
 ```
 
-### Join Videos
-```bash
-python main.py \
--c africa1.mp4 gabby.mp4 \ 
--o gabby_africa.mp4
-
-# Using CLI
-concat \
--c africa1.mp4 gabby.mp4 \ 
--o gabby_africa.mp4
-```
-
-### Cut Videos
-```bash
-python main.py \
--i africa1.mp4 \
--o gabby_africa.mp4 \
--s "00:00:00" \
--e "00:00:00"
-
-# Using CLI
-slice \
--i africa1.mp4 \
--o gabby_africa.mp4 \
--s "00:00:00" \
--e "00:00:00"
-```
-
-### Watermark Videos
-```bash
-python main.py -i gabby.mp4 -w james.png -x 500 -o water_output.mp4
-
-# Using CLI
-watermark -i gabby.mp4 -w james.png -x 500 -o water_output.mp4
-```
-### Add Background and Overlay Video
-```bash
-python main.py -b gabby.mp4 -o IWILL.mp4 -x final1.mp4 -p 150 -v 0.10 -bv 1.0
-
-# Using CLI
-background -b gabby.mp4 -o IWILL.mp4 -x final1.mp4 -p 150 -v 0.10 -bv 1.0
-```
-
 ### Download YouTube/Facebook/Twitter Videos
 ```bash
-
 # Using CLI
 ytube -u https://www.youtube.com/watch?v=fqi8cvN1hrI
 
 ytube --url https://twitter.com/kwadwosheldon/status/1673856306136981504
 
 ytube --url https://www.facebook.com/gtvghana/videos/1219922122741862
+```
+
+### Join Videos
+```bash
+python main.py \
+-c one.mp4 two.mp4 three.mp4 \ 
+-o output.mp4
+
+# Using CLI
+concat \
+-c one.mp4 two.mp4 three.mp4 \ 
+-o output.mp4
+```
+
+### Cut Videos
+```bash
+python main.py \
+-i input.mp4 \
+-o output.mp4 \
+-s "00:00:00" \
+-e "00:00:00"
+
+# Using CLI
+slice \
+-i input.mp4 \
+-o output.mp4 \
+-s "00:00:00" \
+-e "00:00:00"
+```
+
+### Watermark Videos
+```bash
+python main.py -i input.mp4 -w james.png -x 500 -o water_output.mp4
+
+# Using CLI
+watermark -i input.mp4 -w james.png -x 500 -o water_output.mp4
+```
+### Add Background and Overlay Video
+```bash
+python main.py -b background_video.mp4 -o overlay_video.mp4 -x final1.mp4 -p 150 -v 0.10 -bv 1.0
+
+# Using CLI
+background -b background_video.mp4 -o overlay_video.mp4 -x final1.mp4 -p 150 -v 0.10 -bv 1.0
+```
+
+### Add Text to Video
+  + text position: "left,top" , "left,bottom", "right,bottom"
+```shell
+add_text -i input.mp4 -o output.mp4 -s "@the_data_prof" -f 50 -t "blue" -p "center,top"
 ```
 
 BuyMeCoffee

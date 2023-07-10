@@ -3,7 +3,7 @@ import argparse
 from loguru import logger
 from moviepy.editor import *
 
-from .utils import has_image_extension
+from .utils import has_image_extension, tuple_type
 
 
 def cli():
@@ -14,9 +14,9 @@ def cli():
     parser.add_argument("--output_vid", '-o', type=str, required=True, help="output video")
     parser.add_argument("--position",
                         '-p',
-                        type=str,
-                        default="left",
-                        choices=["left", "center", "right", "top"],
+                        type=tuple_type,
+                        default="left,bottom",
+                        # choices=["left", "center", "right", "top"],
                         help="watermark position")
     args = parser.parse_args()
 
@@ -47,7 +47,7 @@ def cli():
     # Add the watermark to the video
     watermark_pos = args.position
     video_with_watermark = CompositeVideoClip(
-        [video, watermark.set_position((watermark_pos, "bottom"))],
+        [video, watermark.set_position(watermark_pos)],
     )
 
     # Write the output video
