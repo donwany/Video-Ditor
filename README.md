@@ -62,7 +62,7 @@ slice \
 python main.py -i input.mp4 -w james.png -x 500 -o water_output.mp4
 
 # Using CLI
-watermark -i input.mp4 -w james.png -x 500 -o water_output.mp4
+watermark -i input.mp4 -w james.png -x 500 -p "left,bottom" -o water_output.mp4
 ```
 ### Add Background and Overlay Video
 ```bash
